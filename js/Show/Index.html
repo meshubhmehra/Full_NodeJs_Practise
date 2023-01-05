@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Search Users" id="filter_users" />
+
+    <ul id="users-list">
+
+    </ul>
+    <script>let users = [
+            {
+                "name": "Charity Rush",
+                "age": 10
+            },
+            {
+                "name": "Jean Boyd",
+                "age": 0
+            },
+            {
+                "name": "Tracy Newman",
+                "age": 7
+            },
+            {
+                "name": "Nico Gould",
+                "age": 7
+            },
+            {
+                "name": "Savage Compton",
+                "age": 6
+            },
+            {
+                "name": "Addison Allen",
+                "age": 4
+            },
+            {
+                "name": "Farren West",
+                "age": 5
+            },
+            {
+                "name": "August Case",
+                "age": 10
+            },
+            {
+                "name": "Gray Norris",
+                "age": 5
+            },
+            {
+                "name": "Gray Norris",
+                "age": 5
+            },
+            {
+                "name": "Taylor Bright",
+                "age": 9
+            },
+            {
+                "name": "Sage Fox",
+                "age": 6
+            },
+            {
+                "name": "Jody Kramer",
+                "age": 10
+            },
+            {
+                "name": "Tandy Christensen",
+                "age": 4
+            },
+            {
+                "name": "Dae Figueroa",
+                "age": 8
+            },
+            {
+                "name": "Tandy Christensen",
+                "age": 5
+            },
+            {
+                "name": "Jean Boyd",
+                "age": 0
+            },
+            {
+                "name": "Tracy Newman",
+                "age": 9
+            },
+            {
+                "name": "Riley Kline",
+                "age": 2
+            },
+            {
+                "name": "Gray Norris",
+                "age": 1
+            },
+            {
+                "name": "Nico Harding",
+                "age": 9
+            },
+            {
+                "name": "Rowan Herring",
+                "age": 6
+            },
+            {
+                "name": "Quinn Robles",
+                "age": 1
+            },
+            {
+                "name": "Jude Battle",
+                "age": 3
+            },
+            {
+                "name": "Donovan Hutchinson",
+                "age": 10
+            }
+        ];
+
+        ul = document.getElementById("users-list");
+
+        let render_lists = function (lists) {
+            let li = "";
+            for (index in lists) {
+                li += "<li>" + lists[index].name + "</li>";
+            }
+            ul.innerHTML = li;
+        }
+
+        render_lists(users);
+        input = document.getElementById('filter_users');
+
+        let filterUsers = function (event) {
+            keyword = input.value.toLowerCase();
+            filtered_users = users.filter(function (user) {
+                user = user.name.toLowerCase();
+                return user.indexOf(keyword) > -1;
+            });
+
+            render_lists(filtered_users);
+        }
+
+        input.addEventListener('keyup', filterUsers);
+
+    </script>
+</body>
+
+</html>
